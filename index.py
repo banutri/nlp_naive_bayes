@@ -1,7 +1,7 @@
 import pandas as pd
 import csv
 
-file = 'dataset_tweet_1.csv'
+file = 'dataset_tweet_3.csv'
 
 token_data = open(file)
 tokens = csv.reader(token_data, delimiter=';')
@@ -48,7 +48,7 @@ for tweet in tweets:
 
 df['clean'] = clean_tweets
 print(df.head())
-print(clean_tweets)
+# print(clean_tweets)
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import GaussianNB
@@ -77,6 +77,7 @@ tweet = ''
 v_data = vectorizer.transform([tweet]).toarray()
 y_preds = model_g.predict(v_data)
 
+print(y_preds)
 #dengan asumsi bahwa 1 merupakan label positif
 if y_preds == 1:
     print('Positif')
